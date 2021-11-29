@@ -19,6 +19,8 @@ namespace Microsoft.eShopWeb.Web.Configuration
             services.AddSingleton<IUriComposer>(new UriComposer(configuration.Get<CatalogSettings>()));
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IOrderDeliveryService, OrderDeliveryService>();
+            services.AddTransient<IOrderReservingService, OrderReservingService>();
 
             return services;
         }
